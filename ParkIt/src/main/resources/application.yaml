@@ -1,0 +1,44 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /parkit
+
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 5619g23@gmail.com
+    password: vmpawvlkcxmwsxme
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    default-encoding: UTF-8
+# mysql -h 3.26.213.73 -u dev -p
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://3.26.213.73:3306/parkit?characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+      username: dev
+      password: developer
+
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #自动驼峰命名
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.G23.ParkIt.entity
+
+
+#jwt:
+#  token:
+#    tokenExpiration: 120 # Effective time: 120 millisecond
+#    tokenSignKey: parkIt123456 # Customized current program signing key
+
+# jwt variables
+jwt:
+  secret: 7aG8v2Bz4FQkMiC5tY06Zl9dXbnUxWOjy3eLohTVNrsSEwPcfHJDRpbI1mauKqgvBh7W3yNezUdOQl5j6pXViM4k9SCc2G0FbTYr8xoL1RuZn6sAWfQvEmD7tXwzH5OgB
+  expiration: 86400000

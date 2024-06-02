@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #b6eaf1;
+  padding: 10px 20px;
+}
+
+.logo {
+  display: block;
+  height: 7rem;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  color: #000;
+  text-decoration: none;
+  background-color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e6f2f5;
+}

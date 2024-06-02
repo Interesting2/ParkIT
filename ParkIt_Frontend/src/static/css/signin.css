@@ -1,0 +1,90 @@
+.signin-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #e3f4f6; /* Light Blue */
+}
+
+.signin-form {
+  width: 400px;
+  padding: 40px;
+  background-color: #ffffff; /* White */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #00000033; /* Box shadow */
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.signin-form input {
+  width: 100%; 
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signin-button {
+  display: block;
+  background-color: #b6eaf1 !important; /* Light Blue */
+  color: #000; /* Black text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  margin: 0 auto;
+
+}
+
+.signin-button:hover {
+  background-color: #a6dce1; /* Slightly darker shade for hover */
+}
+
+.alternate-auth {
+  margin-top: 20px;
+  text-align: center; 
+}
+
+.alternate-auth a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.alternate-auth a:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-link {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: right;
+  color: #0066ff;
+  text-decoration: none;
+  transition: color .3s ease-in-out;
+}
+
+.forgot-password-link:hover {
+  color: #0044cc;
+}
+
+.remember-me-container {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.remember-me-checkbox {
+  margin-top: 12px;
+  margin-right: 5px;
+  width: 50px !important;
+}
+
+.remember-me-label {
+  cursor: pointer;
+}

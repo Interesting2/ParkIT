@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.G23.ParkIt.mapper.BookingMapper">
+
+    <resultMap id="bookingResultMap" type="com.G23.ParkIt.entity.Booking">
+        <id column="booking_id" property="bookingId"/>
+        <result column="timestamp" property="timestamp"/>
+        <result column="transaction_price" property="transactionPrice"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="status" property="status"/>
+        <result column="listing_id" property="listingId"/>
+        <result column="lessor_id" property="lessorId"/>
+    </resultMap>
+
+    <select id="getBookingsById" resultMap="bookingResultMap">
+        SELECT * FROM bookings WHERE booking_id = #{bookingId}
+    </select>
+
+    <select id="getAllBookings" resultMap="bookingResultMap">
+        SELECT * FROM bookings
+    </select>
+
+    <insert id="insertBooking" useGeneratedKeys="true" keyProperty="bookingId" keyColumn="booking_id">
+        INSERT INTO bookings(timestamp, transaction_price, start_time, end_time, status, listing_id, lessor_id)
+        VALUES(#{timestamp}, #{transactionPrice}, #{startTime}, #{endTime}, #{status}, #{listingId}, #{lessorId})
+    </insert>
+
+    <update id="updateBooking">
+        UPDATE bookings SET timestamp=#{timestamp}, transaction_price=#{transactionPrice}, start_time=#{startTime}, end_time=#{endTime}, status=#{status}, listing_id=#{listingId}, lessor_id=#{lessorId} WHERE booking_id=#{bookingId}
+    </update>
+
+    <delete id="deleteBooking">
+        DELETE FROM bookings WHERE booking_id=#{bookingId}
+    </delete>
+
+    <select id="getBookingsByUserId" resultMap="bookingResultMap">
+        SELECT b.* FROM bookings b
+        INNER JOIN lessors l ON b.lessor_id = l.lessor_id
+        WHERE l.user_id = #{userId}
+    </select>
+
+</mapper>

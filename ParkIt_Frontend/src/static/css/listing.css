@@ -1,0 +1,100 @@
+.listing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .listing-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .availability-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .availability-table th,
+  .availability-table td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  .availability-table th {
+    background-color: #e0e0e0;
+  }
+  
+  .book-button {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  
+  .book-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Reviews Section */
+.reviews-section {
+    width: 80%;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .review {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+  }
+  
+  .review:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .review-rating {
+    font-size: 1.2rem;
+    color: #ffd700;  /* Golden color for stars */
+  }
+  
+  .review-comment {
+    font-size: 1rem;
+    color: #555;
+  }

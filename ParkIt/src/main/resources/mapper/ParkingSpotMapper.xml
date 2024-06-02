@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.G23.ParkIt.mapper.ParkingSpotMapper">
+
+    <resultMap id="ParkingSpotResultMap" type="com.G23.ParkIt.entity.ParkingSpot">
+        <id property="spotId" column="spot_id"/>
+        <result property="address" column="address"/>
+        <result property="spotNum" column="spot_num"/>
+        <result property="spotType" column="spot_type"/>
+        <result property="latitude" column="latitude"/>
+        <result property="longitude" column="longitude"/>
+    </resultMap>
+
+    <select id="getParkingSpotById" resultMap="ParkingSpotResultMap">
+        SELECT * FROM parking_spots WHERE spot_id = #{spotId}
+    </select>
+
+    <select id="getAllParkingSpots" resultMap="ParkingSpotResultMap">
+        SELECT * FROM parking_spots
+    </select>
+
+    <insert id="insertParkingSpot" useGeneratedKeys="true" keyProperty="spotId" keyColumn="spot_id">
+        INSERT INTO parking_spots(address, spot_num, spot_type, latitude, longitude)
+        VALUES(#{address}, #{spotNum}, #{spotType}, #{latitude}, #{longitude})
+    </insert>
+
+    <update id="updateParkingSpot">
+        UPDATE parking_spots
+        SET address=#{address}, spot_num=#{spotNum}, spot_type=#{spotType}, latitude=#{latitude}, longitude=#{longitude}
+        WHERE spot_id=#{spotId}
+    </update>
+
+    <delete id="deleteParkingSpot">
+        DELETE FROM parking_spots WHERE spot_id = #{spotId}
+    </delete>
+
+    <select id="getParkingSpotByAddress" resultMap="ParkingSpotResultMap">
+        SELECT * FROM parking_spots WHERE address = #{address}
+    </select>
+
+
+</mapper>

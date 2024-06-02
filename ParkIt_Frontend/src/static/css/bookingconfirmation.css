@@ -1,0 +1,37 @@
+.confirmation-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  .confirmation-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .confirmation-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+
+  .back-btn {
+    padding: 8px 20px;
+    background: skyblue;
+    border-radius: 10px;
+  }

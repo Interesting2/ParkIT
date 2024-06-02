@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.G23.ParkIt.mapper.LessorMapper">
+
+    <resultMap id="lessorResultMap" type="com.G23.ParkIt.entity.Lessor">
+        <id column="lessor_id" property="lessorId"/>
+        <result column="car_id" property="carId"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+
+    <select id="getLessorById" resultMap="lessorResultMap">
+        SELECT * FROM lessors WHERE lessor_id = #{lessorId}
+    </select>
+
+    <select id="getAllLessors" resultMap="lessorResultMap">
+        SELECT * FROM lessors
+    </select>
+
+    <insert id="insertLessor" useGeneratedKeys="true" keyProperty="lessorId" keyColumn="lessor_id">
+        INSERT INTO lessors (car_id, user_id) VALUES (#{carId}, #{userId})
+    </insert>
+
+    <update id="updateLessor">
+        UPDATE lessors SET car_id = #{carId}, user_id = #{userId} WHERE lessor_id = #{lessorId}
+    </update>
+
+    <delete id="deleteLessor">
+        DELETE FROM lessors WHERE lessor_id = #{lessorId}
+    </delete>
+
+    <!-- 3. Get Cars by LessorId -->
+    <select id="getCarsByLessorId" resultMap="CarsByLessorResultMap">
+        SELECT c.*
+        FROM lessors l
+        JOIN cars c ON l.car_id = c.car_id
+        WHERE l.lessor_id = #{lessorId}
+    </select>
+
+    <resultMap id="CarsByLessorResultMap" type="com.G23.ParkIt.entity.Car">
+        <id property="carId" column="car_id"/>
+        <result property="carType" column="car_type"/>
+        <result property="carName" column="car_name"/>
+        <result property="registrationNumber" column="rego_number"/>
+    </resultMap>
+
+    <!-- Get Cars by UserId -->
+    <select id="getCarsByUserId" resultMap="CarsByUserIdResultMap">
+        SELECT c.*
+        FROM lessors l
+        JOIN cars c ON l.car_id = c.car_id
+        WHERE l.user_id = #{userId}
+    </select>
+
+    <resultMap id="CarsByUserIdResultMap" type="com.G23.ParkIt.entity.Car">
+        <id property="carId" column="car_id"/>
+        <result property="carType" column="car_type"/>
+        <result property="carName" column="car_name"/>
+        <result property="registrationNumber" column="rego_number"/>
+    </resultMap>
+
+
+</mapper>

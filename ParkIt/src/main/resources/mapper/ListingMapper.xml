@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.G23.ParkIt.mapper.ListingMapper">
+
+    <resultMap id="listingResultMap" type="com.G23.ParkIt.entity.Listing">
+        <id column="listing_id" property="listingId"/>
+        <result column="hourly_rate" property="hourlyRate"/>
+        <result column="status" property="status"/>
+        <result column="spot_id" property="spotId"/>
+        <result column="lessee_id" property="lesseeId"/>
+        <result column="image_url" property="imageUrl"/>
+    </resultMap>
+
+    <select id="getListingsById" resultMap="listingResultMap">
+        SELECT * FROM listings WHERE listing_id = #{listingId}
+    </select>
+
+    <select id="getAllListings" resultMap="listingResultMap">
+        SELECT * FROM listings
+    </select>
+
+    <insert id="insertListing" useGeneratedKeys="true" keyProperty="listingId" keyColumn="listing_id">
+        INSERT INTO listings(hourly_rate, status, spot_id, lessee_id, description, image_url)
+        VALUES(#{hourlyRate}, #{status}, #{spotId}, #{lesseeId}, #{description}, #{imageUrl})
+    </insert>
+
+    <update id="updateListing">
+        UPDATE listings SET hourly_rate=#{hourlyRate}, status=#{status}, spot_id=#{spotId}, image_url=#{imageUrl} WHERE listing_id=#{listingId}
+    </update>
+
+    <delete id="deleteListing">
+        DELETE FROM listings WHERE listing_id=#{listingId}
+    </delete>
+
+    <select id="getListingsByUserId" resultMap="listingResultMap">
+        SELECT l.* FROM listings l
+        INNER JOIN lessees le ON l.lessee_id = le.lessee_id
+        WHERE le.user_id = #{userId}
+    </select>
+
+    <update id="updateListingImageUrl">
+        UPDATE listings SET image_url=#{imageUrl} WHERE listing_id=#{listingId}
+    </update>
+
+</mapper>

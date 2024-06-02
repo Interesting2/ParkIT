@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.G23.ParkIt.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.G23.ParkIt.entity.User">
+        <id property="userId" column="User_id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="contactPhoneNumber" column="contact_phone_number"/>
+        <result property="contactEmail" column="contact_email"/>
+        <result property="verifyCode" column="verify_code"/>
+        <result property="verified" column="verified"/>
+    </resultMap>
+
+    <select id="getUserById" resultMap="UserResultMap">
+        SELECT * FROM users WHERE user_id = #{userId}
+    </select>
+
+    <select id="getAllUsers" resultMap="UserResultMap">
+        SELECT * FROM users
+    </select>
+
+    <select id="getUserId" resultMap="UserResultMap">
+        SELECT user_id FROM users WHERE username = #{username}
+    </select>
+
+    <!-- <insert id="insertUserWithoutVerify" useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id">
+        INSERT INTO users(password, username, contact_phone_number, contact_email)
+        VALUES(#{password}, #{username}, #{contactPhoneNumber}, #{contactEmail})
+    </insert> -->
+
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id">
+        INSERT INTO users(password, username, contact_phone_number, contact_email, verify_code, verified)
+        VALUES(#{password}, #{username}, #{contactPhoneNumber}, #{contactEmail}, #{verifyCode}, #{verified})
+    </insert>
+
+    <update id="updateUser">
+        UPDATE users
+        SET password=#{password}, username=#{username}, contact_phone_number=#{contactPhoneNumber},
+        contact_email=#{contactEmail}, verified=#{verified}
+        WHERE user_id=#{userId}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM users WHERE user_id = #{userId}
+    </delete>
+
+    <select id="getUserByUsername" resultMap="UserResultMap">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+
+    <update id="updateVerifyCodeForUser">
+        UPDATE users
+        SET verify_code=#{verifyCode}
+        WHERE username=#{username}
+    </update>
+
+    <select id="getVerifyCodeByUsername" resultType="String">
+        SELECT verify_code FROM users WHERE username = #{username}
+    </select>
+
+    <!-- <update id="activateUser">
+        UPDATE users SET balance=0 WHERE username = #{username}
+    </update>
+
+    <update id="deactivateUser">
+        UPDATE users SET balance=-1 WHERE username = #{username}
+    </update> -->
+
+    <update id="resetPassword">
+        UPDATE users SET password=#{newPassword} WHERE username=#{username}
+    </update>
+
+</mapper>

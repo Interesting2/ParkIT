@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<form id="addUserForm">
+    Password: <input type="password" id="password"><br><br>
+    User Name: <input type="text" id="userName"><br><br>
+    Contact Phone Number: <input type="number" id="contactPhoneNumber"><br><br>
+    Contact Email: <input type="email" id="contactEmail"><br><br>
+    Bank Card Number: <input type="text" id="bankCardNum"><br><br>
+    Balance: <input type="number" id="balance"><br><br>
+    <button type="button" onclick="submitForm()">Add User</button>
+</form>
+
+<script>
+    function submitForm(){
+        var user = {
+            password: $('#password').val(),
+            userName: $('#userName').val(),
+            contactPhoneNumber: $('#contactPhoneNumber').val(),
+            contactEmail: $('#contactEmail').val(),
+            bankCardNum: $('#bankCardNum').val(),
+            balance: parseInt($('#balance').val())
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/add", // This should be the URL to your backend endpoint
+            data: JSON.stringify(user),
+            contentType: "application/json",
+            success: function(response) {
+                alert(response.message);
+            },
+            error: function(error) {
+                alert("Error occurred: " + error.responseJSON.message);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

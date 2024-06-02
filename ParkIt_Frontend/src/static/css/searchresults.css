@@ -1,0 +1,74 @@
+.search-results-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Arial', sans-serif; /* Set a readable font */
+    color: #2C3E50; /* Set a readable color */
+    background-color: #ECF0F1; /* Light Background */
+}
+
+
+.search-results-page h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.results-list {
+    list-style-type: none;
+    padding: 0;
+    width: 80%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* subtle shadow for depth */
+    border-radius: 5px; /* Rounded Corners */
+    overflow: hidden; /* Hide overflow for border-radius to work on children */
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    margin: 0; /* Removed margin-bottom */
+    padding: 20px;
+    transition: background 0.3s ease; /* added transition for smoother hover effect */
+    cursor: pointer; /* pointer cursor on hover */
+}
+
+.result-item:hover {
+    background-color: #BDC3C7; /* Light hover Background */
+}
+
+.result-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+    border-radius: 5px; /* Optional: for rounded corners on images */
+}
+
+.result-info {
+    flex-grow: 1; /* Let the text container grow to take up remaining space */
+}
+
+.result-info p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px; /* Increased font size for readability */
+}
+
+.details-button {
+    background-color: #3498DB; /* Blue */
+    color: #FFFFFF; /* White */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 2px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded Corners for buttons */
+}
+
+.details-button:hover {
+    background-color: #2980B9; /* Darker Blue on hover */
+}

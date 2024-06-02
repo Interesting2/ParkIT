@@ -1,0 +1,136 @@
+/* Basic Styling for the Autocomplete Dropdown */
+.autocomplete-dropdown-container {
+  border: 1px solid #ccc;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.autocomplete-suggestion {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.autocomplete-suggestion:hover {
+  background-color: #f7f7f7;
+}
+
+.createListingContainer {
+  padding: 30px;
+  background: rgb(255, 255, 255);
+  /* width: 80%; */
+  margin: 10px auto;
+  /* box-shadow: 0 5px 10px 10px rgba(86, 87, 87, 0.2); */
+  /* border-radius: 30px; */
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+body {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.createListingContainer {
+    padding: 30px;
+    background-color: rgba(241, 241, 241, 0.426);
+    /* width: 0%; */
+
+    margin: 0px auto;
+    /* box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.2); */
+    /* border-radius: 30px; */
+
+}
+
+::placeholder {
+  color: #222222a2; /* Placeholder color */
+}
+
+.input[type='file'] {
+  padding: 0;
+  border: none;
+  color: black;
+}
+
+textarea {
+  resize: none;
+}
+
+.title {
+    font-size: 35px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 800;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: transparent;
+  }
+  
+  ::placeholder {
+    color: #222222a2; /* Replace with the desired color */
+  }
+  
+  .input[type='file'] {
+    padding: 0;
+    border: none;
+    outline: none;
+    color: black;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .button {
+    background-color: #9b64ff !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+ 
+
+/* New Style for Autocomplete Suggestions */
+.suggestionItem {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.suggestionItem:hover {
+  background-color: #f7f7f7;
+}

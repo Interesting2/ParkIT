@@ -1,0 +1,52 @@
+.landing-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); 
+  color: #000000; 
+  font-family: 'Helvetica Neue LT Pro-75Bold', Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+.content-container {
+  width: 60%; 
+  background-color: #ffffff; 
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.12); 
+  padding: 50px;
+  text-align: center;
+  transition: transform .2s ease-in-out;
+}
+
+.content-container:hover {
+  transform: scale(1.05);
+}
+
+.intro-text {
+  padding: 20px;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px rgba(150, 150, 150, 0.5);
+}
+
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.cta {
+  font-size: 20px;
+  color: #0066ff;
+  cursor: pointer;
+  transition: color .3s ease-in-out;
+}
+
+.cta:hover {
+  color: #0044cc;
+}

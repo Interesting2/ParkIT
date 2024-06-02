@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.G23.ParkIt.mapper.CarMapper">
+
+    <resultMap id="carResultMap" type="com.G23.ParkIt.entity.Car">
+        <id column="car_id" property="carId"/>
+        <result column="make" property="make"/>
+        <result column="model" property="model"/>
+        <result column="rego_number" property="registrationNumber"/>
+        <result column="year" property="year"/>
+        <result column="drivers_lic" property="driverLicenseNumber"/>
+        <result column="transmission" property="transmission"/>
+    </resultMap>
+
+    <select id="getCarsById" resultMap="carResultMap">
+        SELECT * FROM cars WHERE car_id = #{carId}
+    </select>
+
+    <select id="getCarByRego" resultMap="carResultMap">
+        SELECT * FROM cars WHERE rego_number = #{rego}
+    </select>
+
+    <select id="getAllCars" resultMap="carResultMap">
+        SELECT * FROM cars
+    </select>
+
+    <insert id="insertCar" useGeneratedKeys="true" keyProperty="carId" keyColumn="car_id">
+        INSERT INTO cars(make, model, rego_number, year, drivers_lic, transmission)
+        VALUES(#{make}, #{model}, #{registrationNumber}, #{year}, #{driverLicenseNumber}, #{transmission})
+    </insert>
+
+    <update id="updateCar">
+        UPDATE cars 
+        SET make=#{make}, 
+            model=#{model}, 
+            rego_number=#{registrationNumber}, 
+            year=#{year}, 
+            drivers_lic=#{driverLicenseNumber}, 
+            transmission=#{transmission} 
+        WHERE car_id=#{carId}
+    </update>
+
+    <delete id="deleteCar">
+        DELETE FROM cars WHERE car_id=#{carId}
+    </delete>
+
+</mapper>

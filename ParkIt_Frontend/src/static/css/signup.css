@@ -1,0 +1,59 @@
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #e3f4f6; /* Light Blue, can adjust to match the landing page better */
+}
+
+.signup-form {
+  width: 400px;
+  padding: 40px;
+  background-color: #ffffff; /* White */
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #00000033; /* Box shadow for modern look */
+}
+
+.signup-form h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  /* margin-bottom: 20px; */
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  /* margin-top: 5px; */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signup-button {
+  display: inline-block;
+  background-color: #b6eaf1 !important; /* Background color of Navbar */
+  color: #000; /* Black text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 100px;
+}
+
+.signup-button:hover {
+  background-color: #a6dce1; /* Slightly darker shade for hover */
+}
+
+.verify-button {
+  background-color: #e3f4f6 !important; /* Light Blue, can adjust to match the landing page better */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: -15px;
+}
+
